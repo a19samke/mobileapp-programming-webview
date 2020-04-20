@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
+        WebView myWebView = (WebView) findViewById(R.id.my_webview);
+        myWebView.loadUrl("http://www.example.com");
     }
 
     public void showInternalWebPage(){
@@ -37,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         WebView webView=findViewById(R.id.my_webview);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("file:///android_asset/about.html");
-
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
