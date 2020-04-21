@@ -18,13 +18,17 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    WebView webView;
+
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
-        WebView myWebView = (WebView) findViewById(R.id.my_webview);
-        myWebView.loadUrl("http://www.example.com");
+        webView.loadUrl("https://wwwlab.iit.his.se/");
+
     }
 
     public void showInternalWebPage(){
+        webView.loadUrl("file:///android_asset/about.html");
+
         // TODO: Add your code for showing internal web page here
     }
 
@@ -36,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        WebView webView=findViewById(R.id.my_webview);
+        webView=findViewById(R.id.my_webview);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("file:///android_asset/about.html");
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
@@ -96,11 +99,13 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_external_web) {
             Log.d("==>","Will display external web page");
+            showExternalWebPage();
             return true;
         }
 
         if (id == R.id.action_internal_web) {
             Log.d("==>","Will display internal web page");
+            showInternalWebPage();
             return true;
         }
 
